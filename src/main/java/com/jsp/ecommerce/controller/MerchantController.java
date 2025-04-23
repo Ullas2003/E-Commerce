@@ -15,7 +15,7 @@ import jakarta.validation.Valid;
 public class MerchantController {
 @GetMapping("/register")
  public String register(UserDto userDto,Model model) {
-	model.addAttribute("merchantdto",userDto);
+	model.addAttribute("userDto",userDto);
 	 return "merchant-register.html";
  }
 @PostMapping("/register")

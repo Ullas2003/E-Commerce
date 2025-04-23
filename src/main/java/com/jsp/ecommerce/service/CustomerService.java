@@ -8,5 +8,4 @@ import com.jsp.ecommerce.dto.UserDto;
 public interface CustomerService {
 String register(UserDto userDto,Model model);
 String register(UserDto userDto,BindingResult result);
-
 }

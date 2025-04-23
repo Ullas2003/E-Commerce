@@ -15,7 +15,7 @@ import jakarta.validation.Valid;
 public class CustomerController {
 	@GetMapping("/register")
 	 public String register(UserDto userDto,Model model) {
-		model.addAttribute("customerdto",userDto);
+		model.addAttribute("userDto",userDto);
 		 return "customer-register.html";
 	 }
 	@PostMapping("/register")

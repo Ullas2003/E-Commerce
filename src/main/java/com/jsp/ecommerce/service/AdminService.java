@@ -5,8 +5,13 @@ import org.springframework.validation.BindingResult;
 
 import com.jsp.ecommerce.dto.UserDto;
 
-public interface AdminService {
-String register(UserDto userDto,Model model);
-String register(UserDto userDto,BindingResult result);
+import jakarta.servlet.http.HttpSession;
 
+public interface AdminService {
+
+	String register(UserDto userDto, Model model);
+
+	String register(UserDto userDto, BindingResult result, HttpSession session);
+
+	String sumbitOtp(int otp, HttpSession session);
 }
