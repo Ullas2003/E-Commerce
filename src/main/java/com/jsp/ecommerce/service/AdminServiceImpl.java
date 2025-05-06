@@ -72,8 +72,8 @@ public class AdminServiceImpl implements AdminService {
 			session.setAttribute("fail", "Otp Missmatch");
 			return "redirect:/admin/otp";
 		}
-
 	}
+
 	@Override
 	public String loadHome(HttpSession session) {
 		Admin admin = (Admin) session.getAttribute("admin");

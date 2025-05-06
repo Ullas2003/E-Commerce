@@ -1,5 +1,6 @@
 package com.jsp.ecommerce.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,20 +19,20 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
-	
+
 	@Autowired
 	CustomerService customerService;
-	
+
 	@GetMapping("/register")
-	 public String register(UserDto userDto,Model model) {
-		model.addAttribute("userDto",userDto);
-		 return "customer-register.html";
-	 }
-	@PostMapping("/register")
-	public String register(@Valid UserDto userDto, BindingResult result,HttpSession session) {
-		return customerService.register(userDto, result,session);
+	public String loadRegister(UserDto userDto, Model model) {
+		return customerService.register(userDto, model);
 	}
-	
+
+	@PostMapping("/register")
+	public String register(@Valid UserDto userDto, BindingResult result, HttpSession session) {
+		return customerService.register(userDto, result, session);
+	}
+
 	@GetMapping("/otp")
 	public String loadOtp() {
 		return "customer-otp.html";
@@ -39,11 +40,13 @@ public class CustomerController {
 
 	@PostMapping("/otp")
 	public String submitOtp(@RequestParam("otp") int otp, HttpSession session) {
-		return customerService.sumbitOtp(otp,session);
+		return customerService.sumbitOtp(otp, session);
 	}
-	
+
 	@GetMapping("/home")
 	public String loadHome(HttpSession session) {
 		return customerService.loadHome(session);
 	}
+	
+
 }
