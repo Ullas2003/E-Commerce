@@ -18,4 +18,10 @@ String loadHome(HttpSession session);
 String loadAddProduct(ProductDto productDto,Model model,HttpSession session);
 String addProduct(@Valid ProductDto productDto,BindingResult result,HttpSession session);
 String manageProducts(HttpSession session,Model model);
+String editProduct(Long id, Model model, HttpSession session);
+
+String updateProduct(Long id, @Valid ProductDto productDto, BindingResult result,Model model, HttpSession session);
+
+String deleteById(Long id, HttpSession session);
+
 }
