@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Approve Products</title>
+  </head>
+  <body>
+    <div class="message">
+      <h2 style="color: green" th:text="${session.pass}"></h2>
+      <h2 style="color: red" th:text="${session.fail}"></h2>
+      <th:block th:text="${@messageRemover.remove()}"></th:block>
+    </div>
+
+    <div align="center">
+      <h1>Products</h1>
+      <table border="1">
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Category</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+        <tr th:each="product : ${products}">
+          <td>
+            <img height="100px" width="100px" th:src="${product.imageUrl}" />
+          </td>
+          <td th:text="${product.name}"></td>
+          <td th:text="${product.description}"></td>
+          <td th:text="${product.price}+'&#8377'"></td>
+          <td th:text="${product.stock}"></td>
+          <td th:text="${product.category}"></td>
+          <td th:text="${product.status}"></td>
+          <td>
+            <a th:if="${!product.status.name().equals('APPROVED')}"  th:href="'/admin/approve/'+${product.id}"><button>Approve</button></a>
+            <a th:if="${!product.status.name().equals('REJECTED')}"  th:href="'/admin/reject/'+${product.id}"><button>Reject</button></a>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <a href="/admin/home"><button>Back</button></a>
+      
+    </div>
+  </body>
+</html>

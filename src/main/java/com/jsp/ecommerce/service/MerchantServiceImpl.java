@@ -228,5 +228,6 @@ public class MerchantServiceImpl implements MerchantService {
 			return "redirect:/login";
 		}
 	}
+	
 
 }

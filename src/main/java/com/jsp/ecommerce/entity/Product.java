@@ -37,6 +37,7 @@ public class Product {
 	private Integer stock;
 	@UpdateTimestamp
 	private LocalDateTime createdTime;
+	private String reason;
 
 	@ManyToOne
 	Merchant merchant;
@@ -119,5 +120,13 @@ public class Product {
 
 	public void setMerchant(Merchant merchant) {
 		this.merchant = merchant;
+	}
+
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
 	}
 }
